@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_bcrypt import Bcrypt
 from config import config_options
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
@@ -17,6 +18,7 @@ db = SQLAlchemy()
 photos = UploadSet('photos',IMAGES)
 mail = Mail()
 simple = SimpleMDE()
+bcrypt = Bcrypt()
 
 def create_app(config_name):
 
@@ -37,6 +39,7 @@ def create_app(config_name):
     login_manager.init_app(app)
     mail.init_app(app)
     simple.init_app(app)
+    bcrypt.init_app(app)
 
     # Registering the main blueprint
     from .main import main as main_blueprint
