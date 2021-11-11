@@ -12,7 +12,7 @@ def load_user(user_id):
 class User(UserMixin,db.Model):
     ''' class user with its properties '''
 
-    __tablename__ = 'user'
+    __tablename__ = 'users'
 
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255),unique = True, nullable = False)
@@ -71,7 +71,7 @@ class Sell(db.Model):
     __tablename__ = 'sell'
 
     id = db.Column(db.Integer, primary_key = True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
     sell_number = db.Column(db.String(255), nullable = False)
     date = db.Column(db.DateTime, nullable = False, default = datetime.now())
     final_price = db.Column(db.Float, nullable = False)
