@@ -5,8 +5,9 @@ This is a pizza application that is build upon the Flask framework.
 
 
 ### Author
-<a href="https://github.com/synthiakageni"> SYNTHIA KAGENI</a>
-<a href="https://github.com/Gavin-Kariuki"> Garvin Kariuki</a>
+-<a href="https://github.com/synthiakageni"> SYNTHIA KAGENI</a>
+
+-<a href="https://github.com/Gavin-Kariuki"> Garvin Kariuki</a>
 
 
 
