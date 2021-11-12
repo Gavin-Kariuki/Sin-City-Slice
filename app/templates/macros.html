@@ -1,0 +1,95 @@
+{% macro displayCategories(categories) %}
+
+<div class="container">
+    <div class="row">
+        <ul>
+            <a class="btn btn-primary cat_btn" href="{{url_for('cats.category')}}">Add Category</a>
+        </ul>      
+    </div>         
+
+    {% for category in categories %}
+
+                <div class="col-md-3">
+
+                    <h4 > <a class="cats" data-toggle="tooltip" data-placement="right" title="Click to see {{category.category}}" href="/pitch/{{category.id}}">{{category.category}}</a></h4>
+
+                    <a class="ratings btn btn-primary" href="/pitch/new/{{category.id}}">Add Your Pitch</a>
+
+                </div>
+    {% endfor %}
+
+</div>
+{% endmacro %}
+
+
+{% macro displayPitches(pitches)%}
+
+
+            <div class="container" >
+                        
+            {% for pitch in pitches %}
+            <div class="col-md-4">
+
+            <div class="col-md-4" style="padding-top: 15px;">
+                <span style="color: green; font-style: italic;">
+                    {{pitch.user.username}} 
+                </span>
+                <span style="color: maroon; font-style: italic;">
+                    Said..
+                </span>
+                </div>
+                
+                
+                    <h5>{{pitch.pitch}}</h5>
+                
+
+            
+                    <a class="ratings btn btn-primary" href="/pitch/comment/new/{{pitch.id}}">Comment</a>
+                    
+                    <a class="ratings btn btn-primary" href="/comment/{{pitch.id}}">Comments</a>
+
+                    <a class="ratings btn btn-success" href="{{url_for('main.upvote',id=pitch.id)}}">Like {{pitch.upvote.count()}}</a>
+
+
+                    <a class="ratings btn btn-danger" href="{{url_for('main.downvote',id=pitch.id)}}">Dislike {{pitch.downvote.count()}}</a>
+                
+                </div>
+
+               {% endfor %}
+            </div>
+
+
+{% endmacro %}
+
+
+{% macro displayComments(comments)%}
+
+
+            <div class="row container" >
+               
+                        
+            {% for comment in comments %}
+
+            <div class="col-md-4" style="padding-top: 15px;">
+                <span style="color: green; font-style: italic;">
+                    {{comment.user.username}}
+                </span>
+                <span style="color: maroon; font-style: italic;">
+                    Said..
+                </span>
+                
+            <div>
+                <h5>{{comment.comment}}</h5>
+                <div>
+                    
+                    
+
+                </div>
+
+            </div>
+            </div>
+
+            {% endfor %}
+            </div>
+
+{% endmacro %}
